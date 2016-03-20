@@ -2,9 +2,11 @@
 #define GESTIONNAIRE_H
 
 #include <cstdlib>
-#include <vector>
+#include <list>
 
 using namespace std;
+
+template<typename T>
 
 class Gestionnaire
 {
@@ -12,17 +14,17 @@ public:
 	Gestionnaire();
 	~Gestionnaire();
 
-	template<typename T> bool ajouterElement(T* objet const);
-	template<typename T> bool retirerElement(T* objet const);
+	template<class T> bool ajouterElement(T* objet const);
+	template<class T> bool retirerElement(T* objet const);
 	
-	template<typename Predicate> bool retirerContenu(Predicate& predicat const);
-	template<typename Predicate> bool trouverElement(Predicate& predicat const);
-	template<typename Predicate> bool trouverContenu(Predicate& predicat const);
+	template<class Predicate> bool retirerContenu(Predicate& predicat);
+	template<class Predicate, class T> T* trouverElement(Predicate& predicat);
+	template<class Predicate, class T>  list<T*> trouverContenu(Predicate& predicat);
 
-	template<typename T> bool Gestionnaire::trouverElement(T& objet const);
+	template<class T> T* Gestionnaire::trouverElement(T& objet const);
 
 protected:
-	template < typename T > vector<T*> objets_;
+	list <T*> objets_;
 };
 
 #endif
