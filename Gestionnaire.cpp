@@ -1,12 +1,12 @@
 #include "Gestionnaire.h"
 
-template<typename T> Gestionnaire::Gestionnaire()
+template<typename T> Gestionnaire<T>::Gestionnaire()
 {}
 
-template<typename T> Gestionnaire::~Gestionnaire()
+template<typename T> Gestionnaire<T>::~Gestionnaire()
 {}
 
-template<class T> bool Gestionnaire::ajouterElement(T* objet const)
+template<typename T> bool Gestionnaire<T>::ajouterElement(T* objet const)
 {
 	auto it = find(objets_.begin(), objets_.end(), objet);
 
@@ -18,7 +18,7 @@ template<class T> bool Gestionnaire::ajouterElement(T* objet const)
 		return false;
 }
 
-template<class T> bool Gestionnaire::retirerElement(T* objet const)
+template<typename T> bool Gestionnaire<T>::retirerElement(T* objet const)
 {
 	auto it = find(objets_.begin(), objets_.end(), objet);
 
@@ -30,7 +30,7 @@ template<class T> bool Gestionnaire::retirerElement(T* objet const)
 		return false;
 }
 
-template<class Predicate> bool Gestionnaire::retirerContenu(Predicate& predicat)
+template<class Predicate> bool Gestionnaire<Predicate>::retirerContenu(Predicate& predicat)
 {
 	auto it = for_each(objets_.begin(), objets_.end(), objets_.erase(objets_.remove_if(predicat);
 
@@ -41,13 +41,13 @@ template<class Predicate> bool Gestionnaire::retirerContenu(Predicate& predicat)
 		return false;
 }
 
-template<class Predicate, class T> T* Gestionnaire::trouverElement(Predicate& predicat)
+template<class Predicate, typename T> T* Gestionnaire<Predicate>::trouverElement(Predicate& predicat)
 {
 	auto it = find_if(objets_.begin(), objets_.end(), predicat);
 	return it;
 }
 
-template<class Predicate, class T>  list<T*> Gestionnaire::trouverContenu(Predicate& predicat)
+template<class Predicate, typename T>  list<T*> Gestionnaire<T>::trouverContenu(Predicate& predicat)
 {
 	list<T*> copies;
 	copy_if((objets_.begin(), objets_.end(),
@@ -56,7 +56,7 @@ template<class Predicate, class T>  list<T*> Gestionnaire::trouverContenu(Predic
 	return copies;
 }
 
-template<class T> bool Gestionnaire::trouverElement(T& objet const)
+template<typename T> bool Gestionnaire<T>::trouverElement(T& objet const)
 {
 	return (find(objets_.begin(), objets_.end(), objet) != objets_.end());
 }
