@@ -27,7 +27,7 @@ public:
 	list<T*> trouverContenu(Predicate& predicat);
 
 
-protected:
+private:
 	list <T*> objets_;
 };
 template<typename T> Gestionnaire<T>::Gestionnaire()

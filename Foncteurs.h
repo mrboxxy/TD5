@@ -2,24 +2,8 @@
 #define FONCTEURS_H
 #include <cstdlib>
 #include <string>
-#include "Bibliotheque.h"
 
-template <class P>
-class MemeObjet
-{
-public:
-	MemeObjet(P* attribut) : attribut_(attribut)
-	{}
-
-	template <class T> bool operator() (T& objet const)
-	{
-		return (*objet == *attribut_);
-	}
-
-private:
-	P* attribut_;
-};
-
+		
 
 class Empruntable
 {
