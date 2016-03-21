@@ -6,13 +6,12 @@
 //  Copyright © 2016 Martine Bellaiche. All rights reserved.
 //
 
+#include "Gestionnaire.h"
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
 
-
 using namespace std;
-#include "gestionnaire.h"
 
  bool predicate1(int * entier)
 { return *entier > 90;}
@@ -34,7 +33,7 @@ int main()
         maListe.ajouterElement(tableau[i]);
     }
     
-    int *retirerEle = new int(4);
+    int *retirerEle = new int(1);
    
     if (maListe.retirerElement(retirerEle))
         cout << "retrait réussi"<< endl;
