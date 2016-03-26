@@ -71,6 +71,11 @@ ostream & operator<<(ostream & o, const Professeur & professeur)
 
 	// Affichage de la liste des ecoles
 
+	// Ordre alphabetique inverse de la liste
+
+	professeur.vecEcole_.sort();
+	professeur.vecEcole_.reverse();
+
 	for (size_t i = 0; i < professeur.vecEcole_.size(); i++)
 	{
 		o << professeur.vecEcole_[i] << "; ";
