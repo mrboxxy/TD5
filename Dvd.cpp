@@ -10,6 +10,7 @@ Dvd::Dvd(const std::string & cote, const std::string & titre, unsigned int annee
 	ObjetEmpruntable(cote, titre, annee, ageMin, nbExemplaires), realisateur_(realisateur), vecActeurs_(acteurs)
 
 {
+
 }
 
 
@@ -75,11 +76,6 @@ ostream & operator<<(ostream & o, const Dvd & dvd)
 		<< " Realisateur : " << dvd.realisateur_
 		<< "; Acteurs : ";
 	//affichage des acteurs
-	// obtention de l'ordre alphabetique inverse
-
-	dvd.vecActeurs_.sort();
-	dvd.vecActeurs_.reverse();
-
 	for (int i = 0; i < dvd.vecActeurs_.size(); i++)
 		{
 			o << dvd.vecActeurs_[i] << "; ";

@@ -1,8 +1,6 @@
 #ifndef DVD_H
 #define DVD_H
 #include "ObjetEmpruntable.h"
-#include <cstdlib>
-#include <list>
 #include <vector>
 
 class Dvd :
@@ -30,7 +28,7 @@ public:
 private:
 	std::string realisateur_;
 	// TODO: modifier le vector par une list listActeurs_
-	list<std::string> vecActeurs_;
+	std::vector<std::string> vecActeurs_;
 
 };
 #endif

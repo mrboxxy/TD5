@@ -1,8 +1,7 @@
 #ifndef PROFESSEUR_H
 #define PROFESSEUR_H
 
-#include <cstdlib>
-#include <list>
+
 #include "Abonne.h"
 class Professeur :
 	public Abonne
@@ -21,6 +20,6 @@ public:
 
 private:
 	// TODO: modifier le vector par une list listEcoles_
-	list<std::string> vecEcole_;
+	std::vector<std::string> vecEcole_;
 };
 #endif // !PROFESSEUR_H
