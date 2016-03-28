@@ -1,5 +1,5 @@
-#ifndef DETRUIREEMPRUNT.H
-#define DETRUIREEMPRUNT.H
+#ifndef DETRUIREEMPRUNT_H
+#define DETRUIREEMPRUNT_H
 #include <cstdlib>
 #include <string>
 #include "Emprunt.h"

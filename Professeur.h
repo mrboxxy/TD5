@@ -1,17 +1,17 @@
 #ifndef PROFESSEUR_H
 #define PROFESSEUR_H
 
-
+#include <vector>
 #include "Abonne.h"
 class Professeur :
 	public Abonne
 {
 public:
 	Professeur();
-	Professeur(const std::string& matricule, const std::string& nom, const std::string& prenom, unsigned int age, std::vector<std::string> ecoles);
+	Professeur(const std::string& matricule, const std::string& nom, const std::string& prenom, unsigned int age, std::list<std::string> ecoles);
 	~Professeur();
 
-	std::vector<std::string> obtenirEcole() const;
+	std::list<std::string> obtenirEcole() const;
 	void ajouterEcole(std::string const& ecole);
 	bool retirerEcole(std::string const& ecole);
 	virtual unsigned int obtenirLimiteEmprunt() const;
@@ -20,6 +20,6 @@ public:
 
 private:
 	// TODO: modifier le vector par une list listEcoles_
-	std::vector<std::string> vecEcole_;
+	std::list<std::string> listEcole_;
 };
 #endif // !PROFESSEUR_H

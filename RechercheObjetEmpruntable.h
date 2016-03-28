@@ -1,14 +1,15 @@
-#ifndef RECHERCHEOBJETEMPRUNTABLE.H
-#define RECHERCHEOBJETEMPRUNTABLE.H
+#ifndef RECHERCHEOBJETEMPRUNTABLE_H
+#define RECHERCHEOBJETEMPRUNTABLE_H
 #include <cstdlib>
 #include <string>
+#include <algorithm>
 #include "ObjetEmpruntable.h"
 class RechercheObjetEmpruntable
 {
 public:
 	RechercheObjetEmpruntable(std::string& recherche)
 	{
-		recherche_ = recherche;
+		std::transform(recherche.begin(), recherche.end(), recherche_.begin(), ::tolower);
 	}
 
 	bool operator() (ObjetEmpruntable* objet)

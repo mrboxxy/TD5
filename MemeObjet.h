@@ -1,5 +1,5 @@
-#ifndef MEMEOBJET.H
-#define MEMEOBJET.H
+#ifndef MEMEOBJET_H
+#define MEMEOBJET_H
 #include <cstdlib>
 #include <string>
 #include "Emprunt.h"

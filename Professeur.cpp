@@ -7,8 +7,8 @@ Professeur::Professeur() : Abonne()
 
 }
 
-Professeur::Professeur(const string& matricule, const string& nom, const string& prenom, unsigned int age, vector<string> ecoles) :
-	Abonne(matricule, nom, prenom, age), vecEcole_(ecoles)
+Professeur::Professeur(const string& matricule, const string& nom, const string& prenom, unsigned int age, list<string> ecoles) :
+Abonne(matricule, nom, prenom, age), listEcole_(ecoles)
 {
 
 }
@@ -17,46 +17,35 @@ Professeur::~Professeur()
 
 }
 
-vector<string> Professeur::obtenirEcole() const
+list<string> Professeur::obtenirEcole() const
 {
-	return vecEcole_;
+	return listEcole_;
 }
 
 void Professeur::ajouterEcole(std::string const & ecole)
 {
-	bool present = false;
-	// ajoute l'ecole que si elle n'est pas déjà présente dans le vecteur
+	auto it = find(listEcole_.begin(), listEcole_.end(), ecole);
 
-	for  (int i = 0; i < vecEcole_.size(); i++)
-	{
-		if (vecEcole_[i] == ecole)
-		{
-			present = true;
-		}
+	if (it != listEcole_.end()){
+		listEcole_.push_back(ecole);
 	}
-	if (!present)
-		vecEcole_.push_back(ecole);
 }
 
 bool Professeur::retirerEcole(std::string const & ecole)
 {
-	for (int i = 0; i < vecEcole_.size(); i++)
-	{
-		// retire l'ecole que si elle est présente dans le vecteur
+	auto it = find(listEcole_.begin(), listEcole_.end(), ecole);
 
-		if (vecEcole_[i] == ecole)
-		{
-			vecEcole_[i] = vecEcole_.back();
-			vecEcole_.pop_back();
-			return true;
-		}
+	if (it != listEcole_.end()){
+		listEcole_.erase(it);
+		return true;
 	}
-	return false;
+	else
+		return false;
 }
 
 unsigned int Professeur::obtenirLimiteEmprunt() const
 {
-	return Abonne::obtenirLimiteEmprunt()*vecEcole_.size();
+	return Abonne::obtenirLimiteEmprunt()*listEcole_.size();
 }
 
 
@@ -70,10 +59,14 @@ ostream & operator<<(ostream & o, const Professeur & professeur)
 	o << "LISTE DES ECOLES : " ;
 
 	// Affichage de la liste des ecoles
+	// Ordre alphabetique inverse de la liste
 
-	for (size_t i = 0; i < professeur.vecEcole_.size(); i++)
+	professeur.listEcole_.sort;
+	professeur.listEcole_.reverse;
+
+	for (size_t i = 0; i < professeur.listEcole_.size(); i++)
 	{
-		o << professeur.vecEcole_[i] << "; ";
+		o << professeur.listEcole_[i] << "; ";
 	}
 	o << endl;
 	return o;

@@ -1,5 +1,5 @@
-#ifndef EMPRUNTABLE.H
-#define EMPRUNTABLE.H
+#ifndef EMPRUNTABLE_H
+#define EMPRUNTABLE_H
 #include <cstdlib>
 #include <string>
 #include "Emprunt.h"
@@ -13,7 +13,7 @@ public:
 
 	void operator() (Emprunt& emprunt)
 	{
-		if (emprunt == matricule_ && emprunt == cote_)
+		if (emprunt.obtenirMatricule() == matricule_ && emprunt == cote_)
 		{
 			estDejaEmpunter_ = true;
 			compteur_++;
